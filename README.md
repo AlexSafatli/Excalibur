@@ -1,2 +1,2 @@
 # Excalibur
-Universal TTRPG Character Sheet manager
+Universal TTRPG Character Sheet manager CLI
