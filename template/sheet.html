@@ -51,7 +51,10 @@
           <!-- Pools -->
           <section id="attributes">
             {{range $i, $a := .Character.Attributes}}
-            {{if $i mod 3}}
+            {{if mod $i 3}}
+            {{if gt $i 0}}
+            </div>
+            {{end}}
             <div class="row mb-3">
             {{end}}
              <div class="col">
@@ -70,9 +73,6 @@
                   </div>
                 </div>
               </div>
-            {{if $i mod 3}}
-            </div>
-            {{end}}
             {{end}}
           </section>
         </div>

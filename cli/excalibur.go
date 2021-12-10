@@ -28,6 +28,7 @@ func noOpCmd(_ *cobra.Command, _ []string) {
 func Execute() {
 	// root
 	rootCmd.AddCommand(createCharacterCmd)
+	rootCmd.AddCommand(writeCharacterCmd)
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)
 		os.Exit(1)
