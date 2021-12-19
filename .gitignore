@@ -6,7 +6,7 @@
 *.dylib
 
 # Output files
-*.json
+/*.json
 
 # Test binary, built with `go test -c`
 *.test

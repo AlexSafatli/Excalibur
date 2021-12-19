@@ -42,7 +42,8 @@ var writeCharacterCmd = &cobra.Command{
 			panic(err)
 		}
 		c := model.ImportCharacterFromJSON(dat)
-		if err := template.WriteSheetToFile(&template.CharacterSheet{Title: "Character Sheet", Character: c}, args[1]); err != nil {
+		l := model.ImportLayout(systemFlag)
+		if err := template.WriteSheetToFile(&template.CharacterSheet{Title: "Character Sheet", Character: c}, l, args[1]); err != nil {
 			panic(err)
 		}
 		fmt.Printf("Wrote %s to %s", args[0], args[1])

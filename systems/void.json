@@ -1,0 +1,70 @@
+{
+ "Title": "VOID Character Sheet",
+ "Fields": [
+  {
+   "Name": "Name"
+  },
+  {
+   "Name": "Player"
+  },
+  {
+   "Name": "One Unique Thing"
+  }
+ ],
+ "Attributes": [
+  {
+   "Name": "Physicality",
+   "Color": "bg-dark"
+  },
+  {
+   "Name": "Perception",
+   "Color": "bg-dark"
+  },
+  {
+   "Name": "Recoveries",
+   "Color": "bg-success"
+  },
+  {
+   "Name": "Intellect",
+   "Color": "bg-dark"
+  },
+  {
+   "Name": "Social",
+   "Color": "bg-dark"
+  },
+  {
+   "Name": "Stress",
+   "Color": "bg-warning"
+  },
+  {
+   "Name": "Wealth",
+   "Color": "bg-dark"
+  },
+  {
+   "Name": "Sorcery",
+   "Color": "bg-dark"
+  },
+  {
+   "Name": "Consequences",
+   "Color": "bg-danger"
+  },
+  {
+   "Name": "*",
+   "ValueName": "Max"
+  }
+ ],
+ "Skills": [
+  {
+   "Name": "*",
+   "Fields": [
+    {
+     "Name": "Rating"
+    },
+    {
+     "Name": "Checks",
+     "Value": "☐ ☐ ☐"
+    }
+   ]
+  }
+ ]
+}
