@@ -37,7 +37,7 @@ func ImportCharacterFromJSON(dat []byte) *Character {
 	var c Character
 	err := json.Unmarshal(dat, &c)
 	if err != nil {
-		return &Character{}
+		panic(err)
 	}
 	return &c
 }
