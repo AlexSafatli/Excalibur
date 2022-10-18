@@ -23,6 +23,18 @@ func render(c *CharacterSheet, name string) error {
 			}
 			return c.Character.Skills[0].Fields
 		},
+		"traitColumn": func(c *CharacterSheet) string {
+			if len(c.Character.Traits) == 0 {
+				return ""
+			}
+			return c.Character.Traits[0].ValueName
+		},
+		"equipmentColumns": func(c *CharacterSheet) []*model.Field {
+			if len(c.Character.Equipment) == 0 {
+				return []*model.Field{}
+			}
+			return c.Character.Equipment[0].Fields
+		},
 	})
 	t, err := t.ParseFiles(templatePath)
 	if err != nil {
