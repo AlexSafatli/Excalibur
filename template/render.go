@@ -11,7 +11,7 @@ type CharacterSheet struct {
 	Character *model.Character
 }
 
-var templatePath = "template/sheet.html"
+const templatePath = "template/sheet.html"
 
 func render(c *CharacterSheet, name string) error {
 	t := template.New("sheet.html")
