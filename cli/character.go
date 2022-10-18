@@ -15,7 +15,7 @@ var createCharacterCmd = &cobra.Command{
 	Short: "Create a new empty character and write as a JSON",
 	Args: func(cmd *cobra.Command, args []string) error {
 		if len(args) != 3 {
-			return errors.New("need a character and player name and a JSON path")
+			return errors.New("need a character, player, and a JSON path")
 		}
 		return nil
 	},
@@ -24,7 +24,8 @@ var createCharacterCmd = &cobra.Command{
 		if err := model.WriteCharacterToJSON(c, args[2]); err != nil {
 			panic(err)
 		}
-		fmt.Printf("Generated new character (Name: '%s') and saved to %s", args[0], args[2])
+		fmt.Printf("Generated new character ('%s') and saved to '%s'",
+			args[0], args[2])
 	},
 }
 
@@ -38,20 +39,23 @@ var writeCharacterCmd = &cobra.Command{
 		return nil
 	},
 	Run: func(cmd *cobra.Command, args []string) {
-		var libs []*model.Layout
-
 		dat, err := ioutil.ReadFile(args[0])
 		if err != nil {
 			panic(err)
 		}
 		c := model.ImportCharacterFromJSON(dat)
-		for _, ll := range strings.Split("base,"+layouts, ",") {
-			lib := model.ImportRelativeLayout(ll)
-			libs = append(libs, lib)
+		var libs = []*model.Layout{model.ImportRelativeLayout("base")}
+		if len(layouts) > 0 {
+			for _, ll := range strings.Split(layouts, ",") {
+				lib := model.ImportLayout(ll)
+				libs = append(libs, lib)
+			}
 		}
-		if err := template.WriteSheetToFile(&template.CharacterSheet{Title: "Character Sheet", Character: c}, args[1], libs...); err != nil {
+		if err := template.WriteSheetToFile(
+			&template.CharacterSheet{Title: "Character Sheet", Character: c},
+			args[1], libs...); err != nil {
 			panic(err)
 		}
-		fmt.Printf("Wrote %s to %s", args[0], args[1])
+		fmt.Printf("Wrote '%s' to '%s'", args[0], args[1])
 	},
 }

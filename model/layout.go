@@ -6,6 +6,10 @@ import (
 	"io/ioutil"
 )
 
+const (
+	LayoutsDir = "layouts"
+)
+
 type Layout struct {
 	Title string
 	Defaults
@@ -34,5 +38,5 @@ func ImportLayout(p string) *Layout {
 }
 
 func ImportRelativeLayout(p string) *Layout {
-	return ImportLayout(fmt.Sprintf("libraries/%s.json", p))
+	return ImportLayout(fmt.Sprintf("%s/%s.json", LayoutsDir, p))
 }
