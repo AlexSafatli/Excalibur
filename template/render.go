@@ -52,13 +52,19 @@ func addDefaults(c *CharacterSheet, l *model.Layout) {
 			// Wildcard
 			for i := range c.Character.Attributes {
 				if len(attr.ValueName) > 0 {
-					c.Character.Attributes[i].ValueName = attr.ValueName
+					if c.Character.Attributes[i].ValueName == "" {
+						c.Character.Attributes[i].ValueName = attr.ValueName
+					}
 				}
 				if attr.Value != 0 {
-					c.Character.Attributes[i].Value = attr.Value
+					if c.Character.Attributes[i].Value == 0 {
+						c.Character.Attributes[i].Value = attr.Value
+					}
 				}
 				if len(attr.Color) > 0 {
-					c.Character.Attributes[i].Color = attr.Color
+					if c.Character.Attributes[i].Color == "" {
+						c.Character.Attributes[i].Color = attr.Color
+					}
 				}
 			}
 		} else {
@@ -154,7 +160,9 @@ func addDefaults(c *CharacterSheet, l *model.Layout) {
 	}
 }
 
-func WriteSheetToFile(c *CharacterSheet, l *model.Layout, name string) error {
-	addDefaults(c, l)
+func WriteSheetToFile(c *CharacterSheet, name string, l ...*model.Layout) error {
+	for _, ll := range l {
+		addDefaults(c, ll)
+	}
 	return render(c, name)
 }

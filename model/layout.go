@@ -19,8 +19,8 @@ type Defaults struct {
 	Equipment  []*Item
 }
 
-func ImportLayout(name string) *Layout {
-	dat, err := ioutil.ReadFile(fmt.Sprintf("systems/%s.json", name))
+func ImportLayout(p string) *Layout {
+	dat, err := ioutil.ReadFile(p)
 	if err != nil {
 		panic(err)
 	}
@@ -31,4 +31,8 @@ func ImportLayout(name string) *Layout {
 		panic(err)
 	}
 	return &l
+}
+
+func ImportRelativeLayout(p string) *Layout {
+	return ImportLayout(fmt.Sprintf("libraries/%s.json", p))
 }

@@ -7,6 +7,7 @@ import (
 	"github.com/AlexSafatli/Excalibur/template"
 	"github.com/spf13/cobra"
 	"io/ioutil"
+	"strings"
 )
 
 var createCharacterCmd = &cobra.Command{
@@ -37,13 +38,18 @@ var writeCharacterCmd = &cobra.Command{
 		return nil
 	},
 	Run: func(cmd *cobra.Command, args []string) {
+		var libs []*model.Layout
+
 		dat, err := ioutil.ReadFile(args[0])
 		if err != nil {
 			panic(err)
 		}
 		c := model.ImportCharacterFromJSON(dat)
-		l := model.ImportLayout(systemFlag)
-		if err := template.WriteSheetToFile(&template.CharacterSheet{Title: "Character Sheet", Character: c}, l, args[1]); err != nil {
+		for _, ll := range strings.Split("base,"+layouts, ",") {
+			lib := model.ImportRelativeLayout(ll)
+			libs = append(libs, lib)
+		}
+		if err := template.WriteSheetToFile(&template.CharacterSheet{Title: "Character Sheet", Character: c}, args[1], libs...); err != nil {
 			panic(err)
 		}
 		fmt.Printf("Wrote %s to %s", args[0], args[1])

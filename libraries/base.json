@@ -8,41 +8,17 @@
    "Name": "Player"
   },
   {
-   "Name": "One Unique Thing"
+   "Name": "Title"
   }
  ],
  "Attributes": [
-  {
-   "Name": "Physicality",
-   "Color": "bg-dark"
-  },
-  {
-   "Name": "Perception",
-   "Color": "bg-dark"
-  },
   {
    "Name": "Recoveries",
    "Color": "bg-success"
   },
   {
-   "Name": "Intellect",
-   "Color": "bg-dark"
-  },
-  {
-   "Name": "Social",
-   "Color": "bg-dark"
-  },
-  {
    "Name": "Stress",
    "Color": "bg-warning"
-  },
-  {
-   "Name": "Wealth",
-   "Color": "bg-dark"
-  },
-  {
-   "Name": "Sorcery",
-   "Color": "bg-dark"
   },
   {
    "Name": "Consequences",
@@ -50,7 +26,8 @@
   },
   {
    "Name": "*",
-   "ValueName": "Max"
+   "ValueName": "Max",
+   "Color": "bg-dark"
   }
  ],
  "Skills": [
