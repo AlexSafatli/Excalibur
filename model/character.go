@@ -6,11 +6,12 @@ import (
 )
 
 type Character struct {
-	Fields     []*Field
-	Attributes []*Attribute
-	Skills     []*Skill
-	Traits     []*Trait
-	Equipment  []*Item
+	Implementation string
+	Fields         []*Field
+	Attributes     []*Attribute
+	Skills         []*Skill
+	Traits         []*Trait
+	Equipment      []*Item
 }
 
 type Field struct {
@@ -31,15 +32,6 @@ func NewEmptyCharacter(name, player string) *Character {
 			},
 		},
 	}
-}
-
-func ImportCharacterFromJSON(dat []byte) *Character {
-	var c Character
-	err := json.Unmarshal(dat, &c)
-	if err != nil {
-		panic(err)
-	}
-	return &c
 }
 
 func WriteCharacterToJSON(c *Character, path string) error {

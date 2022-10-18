@@ -1,0 +1,68 @@
+{
+ "Implementation": "simple",
+ "Fields": [
+  {
+   "Name": "Name",
+   "Value": "Henry"
+  },
+  {
+   "Name": "Player",
+   "Value": "Alex"
+  },
+  {
+   "Name": "Title",
+   "Value": "Doctor"
+  }
+ ],
+ "Attributes": [
+  {
+   "Name": "Physicality"
+  },
+  {
+   "Name": "Perception",
+   "Value": 10
+  },
+  {
+   "Name": "Recoveries",
+   "Value": 5
+  },
+  {
+   "Name": "Intellect",
+   "Value": 10
+  },
+  {
+   "Name": "Social",
+   "Value": 10
+  },
+  {
+   "Name": "Stress",
+   "Value": 10
+  },
+  {
+   "Name": "Wealth",
+   "Value": 4
+  },
+  {
+   "Name": "Sorcery",
+   "Value": 10
+  }
+ ],
+ "Skills": [
+  {
+   "Name": "Diplomacy",
+   "Rating": 14
+  }
+ ],
+ "Traits": [
+  {
+   "Name": "Charisma",
+   "Description": "Very charismatic!"
+  }
+ ],
+ "Equipment": [
+  {
+   "Name": "Rope",
+   "Quantity": 1
+  }
+ ]
+}
