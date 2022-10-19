@@ -35,9 +35,6 @@
    "Name": "*",
    "Fields": [
     {
-     "Name": "Rating"
-    },
-    {
      "Name": "Checks",
      "Value": "☐ ☐ ☐"
     }

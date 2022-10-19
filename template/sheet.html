@@ -8,9 +8,14 @@
     <title>{{.Title}}</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+
     <style>
       .container {
         max-width: 1920px;
+      }
+
+      .table thead th {
+        border-bottom: hidden;
       }
 
       .info input {
@@ -82,7 +87,7 @@
           <section id="skills" class="pt-3">
             <table id="skills-table" class="table">
               <thead>
-                <tr class="bg-indigo text-white text-center">
+                <tr class="bg-dark text-white text-center">
                   <th scope="col">Skill</th>
                   {{range skillColumns .}}
                   <th scope="col">{{.Name}}</th>
@@ -108,16 +113,20 @@
           <section id="traits" class="pt-3">
             <table id="traits-table" class="table">
               <thead>
-                <tr class="bg-indigo text-white text-center">
+                <tr class="bg-dark text-white text-center">
                   <th scope="col">Trait</th>
+                  {{if traitColumn .}}
                   <th scope="col">{{traitColumn .}}</th>
+                  {{end}}
                 </tr>
               </thead>
               <tbody>
                 {{range .Character.Traits}}
                 <tr class="text-center">
                   <th scope="row">{{.Name}}</th>
-                  <th>{{.Value}}</th>
+                  {{if .Value}}
+                  <td>{{.Value}}</td>
+                  {{end}}
                 </tr>
                 {{end}}
               </tbody>
@@ -128,7 +137,7 @@
           <section id="equipment">
             <table id="equipment-table" class="table">
               <thead>
-                <tr class="bg-info text-white text-center">
+                <tr class="bg-dark text-white text-center">
                   <th scope="col">Equipment</th>
                   {{range equipmentColumns .}}
                   <th scope="col">{{.Name}}</th>

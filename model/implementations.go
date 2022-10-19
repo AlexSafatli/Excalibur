@@ -2,6 +2,8 @@ package model
 
 import (
 	"encoding/json"
+	"fmt"
+	"os"
 	"strconv"
 )
 
@@ -19,13 +21,13 @@ type SimpleImplementation struct {
 	Fields         []*Field
 	Attributes     []*Attribute
 	Skills         []*SimpleSkill
-	Traits         []*SimpleTrait
+	Traits         []string
 	Equipment      []*SimpleEquipment
 }
 
 type SimpleSkill struct {
-	Name   string
-	Rating int
+	Name string
+	Rank int
 }
 
 type SimpleTrait struct {
@@ -45,15 +47,11 @@ func (i *SimpleImplementation) Convert() *Character {
 	for _, s := range i.Skills {
 		c.Skills = append(c.Skills, &Skill{
 			Name:   s.Name,
-			Fields: []*Field{{"Rating", strconv.Itoa(s.Rating)}},
+			Fields: []*Field{{"Rank", strconv.Itoa(s.Rank)}},
 		})
 	}
 	for _, t := range i.Traits {
-		c.Traits = append(c.Traits, &Trait{
-			Name:      t.Name,
-			ValueName: "Description",
-			Value:     t.Description,
-		})
+		c.Traits = append(c.Traits, &Trait{Name: t})
 	}
 	for _, e := range i.Equipment {
 		c.Equipment = append(c.Equipment, &Item{
@@ -84,7 +82,8 @@ func ImportCharacterFromJSON(dat []byte) *Character {
 	var i implementation
 	err := json.Unmarshal(dat, &i)
 	if err != nil {
-		panic(err)
+		fmt.Println(err)
+		os.Exit(1)
 	}
 	return convertToCharacter(dat, i.Implementation)
 }

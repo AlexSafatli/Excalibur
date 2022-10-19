@@ -50,15 +50,75 @@
  "Skills": [
   {
    "Name": "Diplomacy",
-   "Rating": 14
-  }
- ],
- "Traits": [
+   "Rank": 2
+  },
   {
-   "Name": "Charisma",
-   "Description": "Very charismatic!"
+   "Name": "Brawling",
+   "Rank": 1
+  },
+  {
+   "Name": "Intimidation",
+   "Rank": 3
+  },
+  {
+   "Name": "Literature",
+   "Rank": 5
+  },
+  {
+   "Name": "Writing",
+   "Rank": 4
+  },
+  {
+   "Name": "Climbing",
+   "Rank": 1
+  },
+  {
+   "Name": "Linguistics",
+   "Rank": 6
+  },
+  {
+   "Name": "Biology/TL6",
+   "Rank": 4
+  },
+  {
+   "Name": "Electronics Operation/TL6",
+   "Rank": 7
+  },
+  {
+   "Name": "Mathematics/TL6 (Applied)",
+   "Rank": 6
+  },
+  {
+   "Name": "Chemistry/TL6",
+   "Rank": 2
+  },
+  {
+   "Name": "Research/TL6",
+   "Rank": 2
+  },
+  {
+   "Name": "Cartography/TL 6",
+   "Rank": 1
+  },
+  {
+   "Name": "Savoir-Faire (High Society)",
+   "Rank": 1
+  },
+  {
+   "Name": "Physician/TL6",
+   "Rank": 1
+  },
+  {
+   "Name": "First Aid/TL6",
+   "Rank": 1
+  },
+  {
+   "Name": "Anthropology",
+   "Rank": 4
   }
  ],
+ "Traits": ["Charisma", "Language: Polish", "Alcohol Tolerance", "Stubbornness",
+  "High Pain Threshold"],
  "Equipment": [
   {
    "Name": "Rope",
