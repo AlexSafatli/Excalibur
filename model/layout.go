@@ -2,8 +2,10 @@ package model
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io/ioutil"
+	"os"
 )
 
 const (
@@ -35,6 +37,14 @@ func ImportLayout(p string) *Layout {
 		panic(err)
 	}
 	return &l
+}
+
+func IsRelativeLayout(p string) bool {
+	if _, err := os.Stat(fmt.Sprintf("%s/%s.json",
+		LayoutsDir, p)); errors.Is(err, os.ErrNotExist) {
+		return false
+	}
+	return true
 }
 
 func ImportRelativeLayout(p string) *Layout {

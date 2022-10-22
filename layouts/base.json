@@ -29,16 +29,5 @@
    "ValueName": "Max",
    "Color": "bg-dark"
   }
- ],
- "Skills": [
-  {
-   "Name": "*",
-   "Fields": [
-    {
-     "Name": "Checks",
-     "Value": "☐ ☐ ☐"
-    }
-   ]
-  }
  ]
 }

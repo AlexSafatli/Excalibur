@@ -47,7 +47,12 @@ var writeCharacterCmd = &cobra.Command{
 		var libs = []*model.Layout{model.ImportRelativeLayout("base")}
 		if len(layouts) > 0 {
 			for _, ll := range strings.Split(layouts, ",") {
-				lib := model.ImportLayout(ll)
+				var lib *model.Layout
+				if model.IsRelativeLayout(ll) {
+					lib = model.ImportRelativeLayout(ll)
+				} else {
+					lib = model.ImportLayout(ll)
+				}
 				libs = append(libs, lib)
 			}
 		}
