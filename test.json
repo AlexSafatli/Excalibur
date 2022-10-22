@@ -16,11 +16,7 @@
  ],
  "Attributes": [
   {
-   "Name": "Physicality"
-  },
-  {
-   "Name": "Perception",
-   "Value": 10
+   "Name": "Fortitude"
   },
   {
    "Name": "Recoveries",
@@ -31,19 +27,11 @@
    "Value": 10
   },
   {
-   "Name": "Social",
+   "Name": "Savoir-Faire",
    "Value": 10
   },
   {
    "Name": "Stress",
-   "Value": 10
-  },
-  {
-   "Name": "Wealth",
-   "Value": 4
-  },
-  {
-   "Name": "Sorcery",
    "Value": 10
   }
  ],
@@ -117,8 +105,15 @@
    "Rank": 4
   }
  ],
- "Traits": ["Charisma", "Language: Polish", "Alcohol Tolerance", "Stubbornness",
-  "High Pain Threshold"],
+  "Traits": [
+  {
+   "Name": "Charisma",
+   "Effect": "+1 Die on Reaction Rolls"
+  },
+  {
+   "Name": "Language: Polish"
+  }
+ ],
  "Equipment": [
   {
    "Name": "Rope",

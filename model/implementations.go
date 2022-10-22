@@ -21,7 +21,7 @@ type SimpleImplementation struct {
 	Fields         []*Field
 	Attributes     []*Attribute
 	Skills         []*SimpleSkill
-	Traits         []string
+	Traits         []*SimpleTrait
 	Equipment      []*SimpleEquipment
 }
 
@@ -31,8 +31,8 @@ type SimpleSkill struct {
 }
 
 type SimpleTrait struct {
-	Name        string
-	Description string
+	Name   string
+	Effect string
 }
 
 type SimpleEquipment struct {
@@ -51,7 +51,8 @@ func (i *SimpleImplementation) Convert() *Character {
 		})
 	}
 	for _, t := range i.Traits {
-		c.Traits = append(c.Traits, &Trait{Name: t})
+		c.Traits = append(c.Traits, &Trait{Name: t.Name, Value: t.Effect,
+			ValueName: "Effect"})
 	}
 	for _, e := range i.Equipment {
 		c.Equipment = append(c.Equipment, &Item{
