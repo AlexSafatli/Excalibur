@@ -19,10 +19,6 @@
    "Name": "Fortitude"
   },
   {
-   "Name": "Recoveries",
-   "Value": 5
-  },
-  {
    "Name": "Intellect",
    "Value": 10
   },
@@ -31,8 +27,8 @@
    "Value": 10
   },
   {
-   "Name": "Stress",
-   "Value": 10
+   "Name": "Recoveries",
+   "Value": 5
   }
  ],
  "Skills": [

@@ -17,14 +17,6 @@
    "Color": "bg-success"
   },
   {
-   "Name": "Stress",
-   "Color": "bg-warning"
-  },
-  {
-   "Name": "Consequences",
-   "Color": "bg-danger"
-  },
-  {
    "Name": "*",
    "ValueName": "Max",
    "Color": "bg-dark"

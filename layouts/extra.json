@@ -1,0 +1,12 @@
+{
+  "Attributes": [
+    {
+     "Name": "Stress",
+     "Color": "bg-warning"
+    },
+    {
+     "Name": "Consequences",
+     "Color": "bg-danger"
+    }
+  ]
+}
