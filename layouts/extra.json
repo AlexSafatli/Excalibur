@@ -1,6 +1,10 @@
 {
   "Attributes": [
     {
+     "Name": "Recoveries",
+     "Color": "bg-success"
+    },
+    {
      "Name": "Stress",
      "Color": "bg-warning"
     },

@@ -13,10 +13,6 @@
  ],
  "Attributes": [
   {
-   "Name": "Recoveries",
-   "Color": "bg-success"
-  },
-  {
    "Name": "*",
    "ValueName": "Max",
    "Color": "bg-dark"
