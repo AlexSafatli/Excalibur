@@ -8,7 +8,9 @@ import (
 )
 
 var (
+	// Flags
 	layouts string
+	h       bool
 )
 
 var rootCmd = &cobra.Command{
@@ -33,7 +35,6 @@ func Execute() {
 	// root
 	rootCmd.AddCommand(createCharacterCmd)
 	rootCmd.AddCommand(writeCharacterCmd)
-	rootCmd.Flags().StringVar(&layouts, "layouts", "", "a comma-separated list of defined libraries to draw from for skills, traits, etc. when generating and rendering")
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Println(err)
 		os.Exit(1)

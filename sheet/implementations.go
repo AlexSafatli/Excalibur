@@ -1,4 +1,4 @@
-package model
+package sheet
 
 import (
 	"encoding/json"
@@ -37,6 +37,7 @@ type SimpleTrait struct {
 
 type SimpleEquipment struct {
 	Name     string
+	Effect   string
 	Quantity int
 }
 
@@ -56,8 +57,9 @@ func (i *SimpleImplementation) Convert() *Character {
 	}
 	for _, e := range i.Equipment {
 		c.Equipment = append(c.Equipment, &Item{
-			Name:   e.Name,
-			Fields: []*Field{{"Quantity", strconv.Itoa(e.Quantity)}},
+			Name: e.Name,
+			Fields: []*Field{{"Effect", e.Effect},
+				{"Quantity", strconv.Itoa(e.Quantity)}},
 		})
 	}
 	return c

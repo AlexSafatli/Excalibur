@@ -1,4 +1,4 @@
-package model
+package sheet
 
 type Skill struct {
 	Name   string

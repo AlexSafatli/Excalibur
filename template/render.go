@@ -1,14 +1,14 @@
 package template
 
 import (
-	"github.com/AlexSafatli/Excalibur/model"
+	"github.com/AlexSafatli/Excalibur/sheet"
 	"html/template"
 	"os"
 )
 
 type CharacterSheet struct {
 	Title     string
-	Character *model.Character
+	Character *sheet.Character
 }
 
 const templatePath = "template/sheet.html"
@@ -17,9 +17,9 @@ func render(c *CharacterSheet, name string) error {
 	t := template.New("sheet.html")
 	t.Funcs(template.FuncMap{
 		"mod": func(i, j int) bool { return i%j == 0 },
-		"skillColumns": func(c *CharacterSheet) []*model.Field {
+		"skillColumns": func(c *CharacterSheet) []*sheet.Field {
 			if len(c.Character.Skills) == 0 {
-				return []*model.Field{}
+				return []*sheet.Field{}
 			}
 			return c.Character.Skills[0].Fields
 		},
@@ -29,9 +29,9 @@ func render(c *CharacterSheet, name string) error {
 			}
 			return c.Character.Traits[0].ValueName
 		},
-		"equipmentColumns": func(c *CharacterSheet) []*model.Field {
+		"equipmentColumns": func(c *CharacterSheet) []*sheet.Field {
 			if len(c.Character.Equipment) == 0 {
-				return []*model.Field{}
+				return []*sheet.Field{}
 			}
 			return c.Character.Equipment[0].Fields
 		},
@@ -52,7 +52,7 @@ func render(c *CharacterSheet, name string) error {
 	return nil
 }
 
-func addDefaults(c *CharacterSheet, l *model.Layout) {
+func addDefaults(c *CharacterSheet, l *sheet.Layout) {
 	for _, field := range l.Fields {
 		if !c.Character.HasField(field) {
 			c.Character.Fields = append(c.Character.Fields, field)
@@ -172,7 +172,7 @@ func addDefaults(c *CharacterSheet, l *model.Layout) {
 	}
 }
 
-func WriteSheetToFile(c *CharacterSheet, name string, l ...*model.Layout) error {
+func WriteSheetToFile(c *CharacterSheet, name string, l ...*sheet.Layout) error {
 	for _, ll := range l {
 		addDefaults(c, ll)
 	}

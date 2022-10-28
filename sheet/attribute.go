@@ -1,4 +1,4 @@
-package model
+package sheet
 
 type Attribute struct {
 	Name      string

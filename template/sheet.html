@@ -38,7 +38,7 @@
         min-height: 136px;
       }
 
-      .traits-value {
+      .small {
         font-size: 14px;
       }
     </style>
@@ -132,7 +132,7 @@
                 {{range .Character.Traits}}
                 <tr class="text-center">
                   <th scope="row">{{.Name}}</th>
-                  <td class="traits-value">{{.Value}}</td>
+                  <td class="small">{{.Value}}</td>
                 </tr>
                 {{end}}
               </tbody>
@@ -155,7 +155,7 @@
                 <tr class="text-center">
                   <th scope="row">{{.Name}}</th>
                   {{range .Fields}}
-                  <td>{{.Value}}</td>
+                  <td class="small">{{.Value}}</td>
                   {{end}}
                 </tr>
                 {{end}}

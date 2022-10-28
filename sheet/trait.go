@@ -1,4 +1,4 @@
-package model
+package sheet
 
 type Trait struct {
 	Name      string
