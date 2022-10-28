@@ -10,6 +10,10 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
 
     <style>
+      body {
+        font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+      }
+
       .container {
         max-width: 1920px;
       }
@@ -124,9 +128,7 @@
                 {{range .Character.Traits}}
                 <tr class="text-center">
                   <th scope="row">{{.Name}}</th>
-                  {{if .Value}}
                   <td>{{.Value}}</td>
-                  {{end}}
                 </tr>
                 {{end}}
               </tbody>

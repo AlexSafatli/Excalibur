@@ -3,32 +3,29 @@
  "Fields": [
   {
    "Name": "Name",
-   "Value": "Henry"
+   "Value": "Konstantin Misha (Vlada) Grigorievich"
   },
   {
    "Name": "Player",
-   "Value": "Alex"
+   "Value": "Dan"
   },
   {
    "Name": "Title",
-   "Value": "Doctor"
+   "Value": "Charming Rogue"
   }
  ],
  "Attributes": [
   {
-   "Name": "Fortitude"
+   "Name": "Fortitude",
+   "Value": 6
   },
   {
    "Name": "Intellect",
-   "Value": 10
+   "Value": 3
   },
   {
-   "Name": "Savoir-Faire",
-   "Value": 10
-  },
-  {
-   "Name": "Recoveries",
-   "Value": 5
+   "Name": "Social",
+   "Value": 4
   }
  ],
  "Skills": [
@@ -37,68 +34,44 @@
    "Rank": 2
   },
   {
-   "Name": "Brawling",
+   "Name": "Guns",
+   "Rank": 2
+  },
+  {
+   "Name": "Melee Weapons",
    "Rank": 1
   },
   {
-   "Name": "Intimidation",
+   "Name": "Lockpicking",
+   "Rank": 1
+  },
+  {
+   "Name": "Stealth",
+   "Rank": 1
+  },
+  {
+   "Name": "Savoir-Faire (Mafia)",
+   "Rank": 1
+  },
+  {
+   "Name": "Savoir-Faire (Military)",
+   "Rank": 1
+  },
+  {
+   "Name": "Athletics",
+   "Rank": 2
+  },
+  {
+   "Name": "Fast-Talk",
+   "Rank": 2
+  },
+  {
+   "Name": "Streetwise",
    "Rank": 3
   },
   {
-   "Name": "Literature",
-   "Rank": 5
-  },
-  {
-   "Name": "Writing",
-   "Rank": 4
-  },
-  {
-   "Name": "Climbing",
+   "Name": "Interrogation",
    "Rank": 1
-  },
-  {
-   "Name": "Linguistics",
-   "Rank": 6
-  },
-  {
-   "Name": "Biology/TL6",
-   "Rank": 4
-  },
-  {
-   "Name": "Electronics Operation/TL6",
-   "Rank": 7
-  },
-  {
-   "Name": "Mathematics/TL6 (Applied)",
-   "Rank": 6
-  },
-  {
-   "Name": "Chemistry/TL6",
-   "Rank": 2
-  },
-  {
-   "Name": "Research/TL6",
-   "Rank": 2
-  },
-  {
-   "Name": "Cartography/TL 6",
-   "Rank": 1
-  },
-  {
-   "Name": "Savoir-Faire (High Society)",
-   "Rank": 1
-  },
-  {
-   "Name": "Physician/TL6",
-   "Rank": 1
-  },
-  {
-   "Name": "First Aid/TL6",
-   "Rank": 1
-  },
-  {
-   "Name": "Anthropology",
-   "Rank": 4
   }
  ],
   "Traits": [
@@ -107,7 +80,11 @@
    "Effect": "+1 Die on Reaction Rolls"
   },
   {
-   "Name": "Language: Polish"
+   "Name": "Language: Slavic"
+  },
+  {
+   "Name": "Unfazeable",
+   "Effect": "If the Difficulty of a Task is influenced by something that makes it scary, you may reduce the Difficulty by one step. You have +3 dice to any Skill Test to resist a Fear inducing Effect."
   }
  ],
  "Equipment": [
