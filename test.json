@@ -88,5 +88,10 @@
   }
  ],
  "Equipment": [
+  {
+   "Name": "Pistol",
+   "Effect": "+1 Die to Guns",
+   "Quantity": 1
+  }
  ]
 }
