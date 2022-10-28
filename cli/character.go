@@ -60,7 +60,9 @@ var writeCharacterCmd = &cobra.Command{
 				p, libs...); err != nil {
 				panic(err)
 			}
-			fmt.Printf("Wrote '%s' to '%s'\n", arg, p)
+		}
+		if len(args) > 0 {
+			fmt.Printf("Wrote %d files\n", len(args))
 		}
 	},
 }
