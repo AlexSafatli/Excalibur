@@ -87,30 +87,6 @@
                 </div>
               </div>
             {{end}}
-            {{if attrlenlt . 9}}
-            {{range $i, $_ := attrlendiff . 9}}
-            {{if mod $i 3}}
-            </div>
-            <div class="row mb-3">
-            {{end}}
-             <div class="col">
-                <div class="attribute card">
-                  <h5 class="card-header text-center text-light bg-light">-</h5>
-                  <div class="card-body">
-                    <div class="row">
-                      <div class="col-7"></div>
-                      <div class="col-5">
-                        <div class="card">
-                          <h6 class="card-header text-center bg-white"></h6>
-                          <div class="card-body text-center"><h2></h2></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            {{end}}
-            {{end}}
           </section>
         </div>
 

@@ -17,19 +17,6 @@ func render(c *CharacterSheet, path string) error {
 	t := template.New("sheet.html")
 	t.Funcs(template.FuncMap{
 		"mod": func(i, j int) bool { return i%j == 0 },
-		"attrlenlt": func(c *CharacterSheet, i int) bool {
-			return len(c.Character.Attributes) < i
-		},
-		"attrlendiff": func(c *CharacterSheet, end int) (stream chan int) {
-			stream = make(chan int)
-			go func() {
-				for i := len(c.Character.Attributes) + 1; i <= end; i++ {
-					stream <- i
-				}
-				close(stream)
-			}()
-			return
-		},
 		"skillColumns": func(c *CharacterSheet) []*sheet.Field {
 			if len(c.Character.Skills) == 0 {
 				return []*sheet.Field{}
