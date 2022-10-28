@@ -60,8 +60,8 @@ var writeCharacterCmd = &cobra.Command{
 				p, libs...); err != nil {
 				panic(err)
 			}
+			fmt.Printf("Wrote '%s' to '%s'\n", arg, p)
 		}
-		fmt.Printf("Wrote '%s' to '%s'", args[0], args[1])
 	},
 }
 
