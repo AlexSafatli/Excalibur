@@ -37,6 +37,10 @@
       #attributes .card {
         min-height: 136px;
       }
+
+      .traits-value {
+        font-size: 14px;
+      }
     </style>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </head>
@@ -128,7 +132,7 @@
                 {{range .Character.Traits}}
                 <tr class="text-center">
                   <th scope="row">{{.Name}}</th>
-                  <td>{{.Value}}</td>
+                  <td class="traits-value">{{.Value}}</td>
                 </tr>
                 {{end}}
               </tbody>
