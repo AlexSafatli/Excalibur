@@ -7,7 +7,6 @@ import (
 	"github.com/AlexSafatli/Excalibur/template"
 	"github.com/spf13/cobra"
 	"io/ioutil"
-	"path"
 	"path/filepath"
 	"strings"
 )
@@ -53,11 +52,12 @@ var writeCharacterCmd = &cobra.Command{
 				panic(err)
 			}
 			c := sheet.ImportCharacterFromJSON(dat)
-			fileName := path.Base(arg)
-			name := strings.TrimSuffix(fileName, filepath.Ext(fileName))
+			n := strings.TrimSuffix(arg, filepath.Ext(arg))
+			p := fmt.Sprintf("%s.%s", n, sheet.FormatHtml)
 			if err := template.WriteSheetToFile(
-				&template.CharacterSheet{Title: "Character Sheet", Character: c},
-				name, libs...); err != nil {
+				&template.CharacterSheet{Title: "Character Sheet",
+					Character: c},
+				p, libs...); err != nil {
 				panic(err)
 			}
 		}

@@ -13,7 +13,7 @@ type CharacterSheet struct {
 
 const templatePath = "template/sheet.html"
 
-func render(c *CharacterSheet, name string) error {
+func render(c *CharacterSheet, path string) error {
 	t := template.New("sheet.html")
 	t.Funcs(template.FuncMap{
 		"mod": func(i, j int) bool { return i%j == 0 },
@@ -40,7 +40,7 @@ func render(c *CharacterSheet, name string) error {
 	if err != nil {
 		return err
 	}
-	f, err := os.Create(name)
+	f, err := os.Create(path)
 	if err != nil {
 		return err
 	}
@@ -172,9 +172,9 @@ func addDefaults(c *CharacterSheet, l *sheet.Layout) {
 	}
 }
 
-func WriteSheetToFile(c *CharacterSheet, name string, l ...*sheet.Layout) error {
+func WriteSheetToFile(c *CharacterSheet, path string, l ...*sheet.Layout) error {
 	for _, ll := range l {
 		addDefaults(c, ll)
 	}
-	return render(c, name)
+	return render(c, path)
 }
