@@ -9,8 +9,9 @@ import (
 
 var (
 	// Flags
-	layouts string
-	h       bool
+	layouts     string
+	orientation string
+	h           bool
 )
 
 var rootCmd = &cobra.Command{

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{{.Title}}</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
+
+    <style>
+      body {
+        font-family: Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
+      }
+
+      .table thead th {
+        border-bottom: black;
+      }
+
+      .info input {
+        width: 100%;
+      }
+
+      .info textarea {
+        width: 100%;
+      }
+
+      .bg-indigo {
+        background-color: #674ea7;
+      }
+
+      #attributes .card {
+        min-height: 136px;
+      }
+
+      .small {
+        font-size: 14px;
+      }
+    </style>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-4">
+          <!-- Character Fields -->
+          <section id="fields" class="pt-3">
+            {{range .Character.Fields}}
+            <div class="row info">
+              <div class="col-3"><p><strong>{{.Name}}</strong></p></div>
+              <div class="col-9"><p>{{.Value}}</p></div>
+            </div>
+            {{end}}
+          </section>
+
+          <hr />
+
+          <!-- Pools -->
+          <section id="attributes">
+            {{range $i, $a := .Character.Attributes}}
+            {{if gt $i 0}}
+            </div>
+            {{end}}
+            <div class="row mb-3">
+             <div class="col">
+                <div class="attribute card">
+                  <h5 class="card-header text-center {{.Color}}">{{.Name}}</h5>
+                  <div class="card-body">
+                    <div class="row">
+                      <div class="col-7"></div>
+                      <div class="col-5">
+                        <div class="card">
+                          <h6 class="card-header text-center bg-white">{{.ValueName}}</h6>
+                          <div class="card-body text-center"><h2>{{.Value}}</h2></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {{end}}
+          </section>
+        </div>
+
+        <div class="col-3">
+          <!-- Skills -->
+          <section id="skills" class="pt-3">
+            <table id="skills-table" class="table">
+              <thead>
+                <tr class="text-center">
+                  <th scope="col">Skill</th>
+                  {{range skillColumns .}}
+                  <th scope="col">{{.Name}}</th>
+                  {{end}}
+                </tr>
+              </thead>
+              <tbody>
+                {{range .Character.Skills}}
+                <tr class="text-center">
+                  <td class="small align-middle"><em>{{.Name}}</em></td>
+                  {{range .Fields}}
+                  <td class="small align-middle">{{.Value}}</td>
+                  {{end}}
+                </tr>
+                {{end}}
+              </tbody>
+            </table>
+          </section>
+        </div>
+
+        <div class="col-5">
+          <!-- Traits -->
+          <section id="traits" class="pt-3">
+            <table id="traits-table" class="table">
+              <thead>
+                <tr class="text-center">
+                  <th scope="col">Trait</th>
+                  {{if traitColumn .}}
+                  <th scope="col" class="col-6">{{traitColumn .}}</th>
+                  {{end}}
+                </tr>
+              </thead>
+              <tbody>
+                {{range .Character.Traits}}
+                <tr class="text-center">
+                  <td class="small align-middle"><em>{{.Name}}</em></td>
+                  <td class="small align-middle">{{.Value}}</td>
+                </tr>
+                {{end}}
+              </tbody>
+            </table>
+          </section>
+
+          <!-- Equipment -->
+          <section id="equipment">
+            <table id="equipment-table" class="table">
+              <thead>
+                <tr class="text-center">
+                  <th scope="col">Equipment</th>
+                  {{range equipmentColumns .}}
+                  <th scope="col">{{.Name}}</th>
+                  {{end}}
+                </tr>
+              </thead>
+              <tbody>
+                {{range .Character.Equipment}}
+                <tr class="text-center">
+                  <td class="small align-middle"><em>{{.Name}}</em></td>
+                  {{range .Fields}}
+                  <td class="small align-middle">{{.Value}}</td>
+                  {{end}}
+                </tr>
+                {{end}}
+              </tbody>
+            </table>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>

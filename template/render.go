@@ -4,6 +4,7 @@ import (
 	"github.com/AlexSafatli/Excalibur/sheet"
 	"html/template"
 	"os"
+	"path"
 )
 
 type CharacterSheet struct {
@@ -11,10 +12,14 @@ type CharacterSheet struct {
 	Character *sheet.Character
 }
 
-const templatePath = "template/sheet.html"
+const (
+	templatesPath = "template"
+	portrait      = "portrait.html"
+	landscape     = "landscape.html"
+)
 
-func render(c *CharacterSheet, path string) error {
-	t := template.New("sheet.html")
+func render(c *CharacterSheet, p string) error {
+	t := template.New(portrait)
 	t.Funcs(template.FuncMap{
 		"mod": func(i, j int) bool { return i%j == 0 },
 		"skillColumns": func(c *CharacterSheet) []*sheet.Field {
@@ -36,11 +41,11 @@ func render(c *CharacterSheet, path string) error {
 			return c.Character.Equipment[0].Fields
 		},
 	})
-	t, err := t.ParseFiles(templatePath)
+	t, err := t.ParseFiles(path.Join(templatesPath, portrait))
 	if err != nil {
 		return err
 	}
-	f, err := os.Create(path)
+	f, err := os.Create(p)
 	if err != nil {
 		return err
 	}
