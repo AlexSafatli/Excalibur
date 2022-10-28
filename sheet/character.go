@@ -57,6 +57,14 @@ func (c *Character) GetField(f *Field) *Field {
 	return nil
 }
 
+func (c *Character) Name() string {
+	f := c.GetField(&Field{Name: "Name"})
+	if f == nil {
+		return ""
+	}
+	return f.Value
+}
+
 func (c *Character) HasAttribute(a *Attribute) bool {
 	for _, attr := range c.Attributes {
 		if attr.Name == a.Name {

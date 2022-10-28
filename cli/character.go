@@ -55,7 +55,9 @@ var writeCharacterCmd = &cobra.Command{
 			n := strings.TrimSuffix(arg, filepath.Ext(arg))
 			p := fmt.Sprintf("%s.%s", n, sheet.FormatHtml)
 			if err := template.WriteSheetToFile(
-				&template.CharacterSheet{Title: "Character Sheet",
+				&template.CharacterSheet{
+					Title: fmt.Sprintf("%s - Character Sheet",
+						c.Name()),
 					Character: c},
 				p, libs...); err != nil {
 				panic(err)
