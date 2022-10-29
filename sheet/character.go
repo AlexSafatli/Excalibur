@@ -7,6 +7,7 @@ import (
 
 type Character struct {
 	Implementation string
+	CampaignName   string
 	Fields         []*Field
 	Attributes     []*Attribute
 	Skills         []*Skill

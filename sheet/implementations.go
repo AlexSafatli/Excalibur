@@ -17,6 +17,7 @@ type implementation struct {
 
 type SimpleImplementation struct {
 	Title          string
+	CampaignName   string
 	Implementation string
 	Fields         []*Field
 	Attributes     []*Attribute
@@ -43,6 +44,7 @@ type SimpleEquipment struct {
 
 func (i *SimpleImplementation) Convert() *Character {
 	var c = &Character{}
+	c.CampaignName = i.CampaignName
 	c.Fields = i.Fields
 	c.Attributes = i.Attributes
 	for _, s := range i.Skills {
