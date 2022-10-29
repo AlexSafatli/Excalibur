@@ -7,6 +7,10 @@ import (
 	"strconv"
 )
 
+const (
+	ImplementationSimple = "simple"
+)
+
 type Implementation interface {
 	Convert() *Character
 }
@@ -69,7 +73,7 @@ func (i *SimpleImplementation) Convert() *Character {
 
 func read(dat []byte, implementation string) Implementation {
 	switch implementation {
-	case "simple":
+	case ImplementationSimple:
 		var i SimpleImplementation
 		if err := json.Unmarshal(dat, &i); err != nil {
 			panic(err)
