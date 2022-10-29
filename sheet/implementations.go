@@ -19,15 +19,19 @@ type implementation struct {
 	Implementation string `json:",omitempty"`
 }
 
-type SimpleImplementation struct {
+type sheetHeaders struct {
 	Title          string
 	CampaignName   string
 	Implementation string
-	Fields         []*Field
-	Attributes     []*Attribute
-	Skills         []*SimpleSkill
-	Traits         []*SimpleTrait
-	Equipment      []*SimpleEquipment
+}
+
+type SimpleImplementation struct {
+	sheetHeaders
+	Fields     []*Field
+	Attributes []*Attribute
+	Skills     []*SimpleSkill
+	Traits     []*SimpleTrait
+	Equipment  []*SimpleEquipment
 }
 
 type SimpleSkill struct {
