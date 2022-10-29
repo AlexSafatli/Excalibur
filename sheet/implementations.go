@@ -19,14 +19,8 @@ type implementation struct {
 	Implementation string `json:",omitempty"`
 }
 
-type sheetHeaders struct {
-	Title          string
-	CampaignName   string
-	Implementation string
-}
-
 type SimpleImplementation struct {
-	sheetHeaders
+	headers
 	Fields     []*Field
 	Attributes []*Attribute
 	Skills     []*SimpleSkill

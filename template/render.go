@@ -57,7 +57,7 @@ func render(c *CharacterSheet, p string) error {
 	return nil
 }
 
-func addDefaults(c *CharacterSheet, l *sheet.Layout) {
+func addDefaults(c *CharacterSheet, l *sheet.Character) {
 	for _, field := range l.Fields {
 		if !c.Character.HasField(field) {
 			c.Character.Fields = append(c.Character.Fields, field)
@@ -177,7 +177,7 @@ func addDefaults(c *CharacterSheet, l *sheet.Layout) {
 	}
 }
 
-func WriteSheetToFile(c *CharacterSheet, path string, l ...*sheet.Layout) error {
+func WriteSheetToFile(c *CharacterSheet, path string, l ...*sheet.Character) error {
 	for _, ll := range l {
 		addDefaults(c, ll)
 	}

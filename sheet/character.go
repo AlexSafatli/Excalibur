@@ -6,13 +6,22 @@ import (
 )
 
 type Character struct {
-	Implementation string
+	headers
+	characteristics
+}
+
+type headers struct {
+	Title          string
 	CampaignName   string
-	Fields         []*Field
-	Attributes     []*Attribute
-	Skills         []*Skill
-	Traits         []*Trait
-	Equipment      []*Item
+	Implementation string
+}
+
+type characteristics struct {
+	Fields     []*Field
+	Attributes []*Attribute
+	Skills     []*Skill
+	Traits     []*Trait
+	Equipment  []*Item
 }
 
 type Field struct {
@@ -20,9 +29,16 @@ type Field struct {
 	Value string
 }
 
+type Attribute struct {
+	Name      string
+	ValueName string
+	Value     int
+	Color     string
+}
+
 func NewEmptyCharacter(name, player string) *Character {
 	return &Character{
-		Fields: []*Field{
+		characteristics: characteristics{Fields: []*Field{
 			{
 				Name:  "Name",
 				Value: name,
@@ -31,7 +47,7 @@ func NewEmptyCharacter(name, player string) *Character {
 				Name:  "Player",
 				Value: player,
 			},
-		},
+		}},
 	}
 }
 

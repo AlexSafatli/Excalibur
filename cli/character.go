@@ -34,10 +34,10 @@ var writeCharacterCmd = &cobra.Command{
 	Use:   "write <json_path>...",
 	Short: "Write any number of existing character JSONs to other formats",
 	Run: func(cmd *cobra.Command, args []string) {
-		var libs = []*sheet.Layout{sheet.ImportRelativeLayout("base")}
+		var libs = []*sheet.Character{sheet.ImportRelativeLayout("base")}
 		if len(layouts) > 0 {
 			for _, ll := range strings.Split(layouts, ",") {
-				var lib *sheet.Layout
+				var lib *sheet.Character
 				if sheet.IsRelativeLayout(ll) {
 					lib = sheet.ImportRelativeLayout(ll)
 				} else {

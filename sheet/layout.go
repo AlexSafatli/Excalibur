@@ -12,26 +12,13 @@ const (
 	LayoutsDir = "layouts"
 )
 
-type Layout struct {
-	Title string
-	Defaults
-}
-
-type Defaults struct {
-	Fields     []*Field
-	Attributes []*Attribute
-	Skills     []*Skill
-	Traits     []*Trait
-	Equipment  []*Item
-}
-
-func ImportLayout(p string) *Layout {
+func ImportLayout(p string) *Character {
 	dat, err := ioutil.ReadFile(p)
 	if err != nil {
 		panic(err)
 	}
 
-	var l Layout
+	var l Character
 	err = json.Unmarshal(dat, &l)
 	if err != nil {
 		panic(err)
@@ -47,6 +34,6 @@ func IsRelativeLayout(p string) bool {
 	return true
 }
 
-func ImportRelativeLayout(p string) *Layout {
+func ImportRelativeLayout(p string) *Character {
 	return ImportLayout(fmt.Sprintf("%s/%s.json", LayoutsDir, p))
 }
