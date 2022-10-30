@@ -20,6 +20,7 @@ type characteristics struct {
 	Fields     []*Field
 	Attributes []*Attribute
 	Skills     []*Skill
+	Abilities  []*Trait
 	Traits     []*Trait
 	Equipment  []*Item
 }
@@ -113,6 +114,24 @@ func (c *Character) GetSkill(s *Skill) *Skill {
 	for _, skill := range c.Skills {
 		if skill.Name == s.Name {
 			return skill
+		}
+	}
+	return nil
+}
+
+func (c *Character) HasAbility(t *Trait) bool {
+	for _, trait := range c.Abilities {
+		if trait.Name == t.Name {
+			return true
+		}
+	}
+	return false
+}
+
+func (c *Character) GetAbility(t *Trait) *Trait {
+	for _, trait := range c.Abilities {
+		if trait.Name == t.Name {
+			return trait
 		}
 	}
 	return nil

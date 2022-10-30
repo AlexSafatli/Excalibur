@@ -24,6 +24,7 @@ type SimpleImplementation struct {
 	Fields     []*Field
 	Attributes []*Attribute
 	Skills     []*SimpleSkill
+	Abilities  []*SimpleTrait
 	Traits     []*SimpleTrait
 	Equipment  []*SimpleEquipment
 }
@@ -54,6 +55,10 @@ func (i *SimpleImplementation) Convert() *Character {
 			Name:   s.Name,
 			Fields: []*Field{{"Rank", strconv.Itoa(s.Rank)}},
 		})
+	}
+	for _, t := range i.Abilities {
+		c.Abilities = append(c.Abilities, &Trait{Name: t.Name, Value: t.Effect,
+			ValueName: "Effect"})
 	}
 	for _, t := range i.Traits {
 		c.Traits = append(c.Traits, &Trait{Name: t.Name, Value: t.Effect,

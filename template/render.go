@@ -28,6 +28,12 @@ func render(c *CharacterSheet, p string) error {
 			}
 			return c.Character.Skills[0].Fields
 		},
+		"abilityColumn": func(c *CharacterSheet) string {
+			if len(c.Character.Abilities) == 0 {
+				return ""
+			}
+			return c.Character.Abilities[0].ValueName
+		},
 		"traitColumn": func(c *CharacterSheet) string {
 			if len(c.Character.Traits) == 0 {
 				return ""
@@ -121,6 +127,32 @@ func addDefaults(c *CharacterSheet, l *sheet.Character) {
 					if !s.HasField(f) {
 						s.Fields = append(s.Fields, f)
 					}
+				}
+			}
+		}
+	}
+
+	for _, trait := range l.Abilities {
+		if trait.Name == "*" {
+			// Wildcard
+			for i := range c.Character.Abilities {
+				if len(trait.ValueName) > 0 {
+					c.Character.Abilities[i].ValueName = trait.ValueName
+				}
+				if len(trait.Value) > 0 {
+					c.Character.Abilities[i].Value = trait.Value
+				}
+			}
+		} else {
+			if !c.Character.HasTrait(trait) {
+				c.Character.Abilities = append(c.Character.Abilities, trait)
+			} else {
+				t := c.Character.GetTrait(trait)
+				if len(trait.ValueName) > 0 {
+					t.ValueName = trait.ValueName
+				}
+				if len(trait.Value) > 0 {
+					t.Value = trait.Value
 				}
 			}
 		}

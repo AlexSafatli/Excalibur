@@ -116,7 +116,29 @@
         </div>
 
         <div class="col-5">
-          <!-- Traits -->
+          <!-- Abilities -->
+          <section id="abilities" class="pt-3">
+            <table id="abilities-table" class="table">
+              <thead>
+                <tr class="text-center">
+                  <th scope="col">Ability</th>
+                  {{if abilityColumn .}}
+                  <th scope="col" class="col-6">{{abilityColumn .}}</th>
+                  {{end}}
+                </tr>
+              </thead>
+              <tbody>
+                {{range .Character.Abilities}}
+                <tr class="text-center">
+                  <td class="small align-middle"><em>{{.Name}}</em></td>
+                  <td class="small align-middle">{{.Value}}</td>
+                </tr>
+                {{end}}
+              </tbody>
+            </table>
+          </section>
+
+          <!-- (Personality) Traits -->
           <section id="traits" class="pt-3">
             <table id="traits-table" class="table">
               <thead>
@@ -139,7 +161,7 @@
           </section>
 
           <!-- Equipment -->
-          <section id="equipment">
+          <section id="equipment" class="pt-3">
             <table id="equipment-table" class="table">
               <thead>
                 <tr class="text-center">
@@ -158,6 +180,24 @@
                   {{end}}
                 </tr>
                 {{end}}
+              </tbody>
+            </table>
+          </section>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <!-- Consequences -->
+          <section id="consequences" class="pt-3">
+            <table id="consequences-table" class="table">
+              <thead>
+                <tr class="text-center">
+                  <th scope="col">Consequence</th>
+                  <th scope="col">Level</th>
+                </tr>
+              </thead>
+              <tbody>
               </tbody>
             </table>
           </section>
