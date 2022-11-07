@@ -66,9 +66,8 @@ func (i *SimpleImplementation) Convert() *Character {
 	}
 	for _, e := range i.Equipment {
 		c.Equipment = append(c.Equipment, &Item{
-			Name: e.Name,
-			Fields: []*Field{{"Effect", e.Effect},
-				{"Quantity", strconv.Itoa(e.Quantity)}},
+			Name:   e.Name,
+			Fields: []*Field{{"Effect", e.Effect}},
 		})
 	}
 	return c
