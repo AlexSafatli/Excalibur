@@ -31,10 +31,6 @@
         width: 100%;
       }
 
-      .bg-indigo {
-        background-color: #674ea7;
-      }
-
       #attributes .card {
         min-height: 136px;
       }
@@ -150,14 +146,13 @@
           </section>
 
           <!-- (Personality) Traits -->
+          {{if traitColumn .}}
           <section id="traits" class="pt-3">
             <table id="traits-table" class="table">
               <thead>
                 <tr class="text-center">
                   <th scope="col" class="half">Trait</th>
-                  {{if traitColumn .}}
                   <th scope="col">{{traitColumn .}}</th>
-                  {{end}}
                 </tr>
               </thead>
               <tbody>
@@ -170,8 +165,10 @@
               </tbody>
             </table>
           </section>
+          {{end}}
 
           <!-- Equipment -->
+          {{if equipmentColumns .}}
           <section id="equipment" class="pt-3">
             <table id="equipment-table" class="table">
               <thead>
@@ -194,6 +191,7 @@
               </tbody>
             </table>
           </section>
+          {{end}}
         </div>
       </div>
 
