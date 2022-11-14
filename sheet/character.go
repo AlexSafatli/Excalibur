@@ -23,6 +23,7 @@ type characteristics struct {
 	Abilities  []*Trait
 	Traits     []*Trait
 	Equipment  []*Item
+	Vehicles   []*Item
 }
 
 type Field struct {
@@ -166,6 +167,24 @@ func (c *Character) HasItem(i *Item) bool {
 
 func (c *Character) GetItem(i *Item) *Item {
 	for _, item := range c.Equipment {
+		if item.Name == i.Name {
+			return item
+		}
+	}
+	return nil
+}
+
+func (c *Character) HasVehicle(i *Item) bool {
+	for _, item := range c.Vehicles {
+		if item.Name == i.Name {
+			return true
+		}
+	}
+	return false
+}
+
+func (c *Character) GetVehicle(i *Item) *Item {
+	for _, item := range c.Vehicles {
 		if item.Name == i.Name {
 			return item
 		}

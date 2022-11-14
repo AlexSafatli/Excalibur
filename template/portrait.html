@@ -194,6 +194,32 @@
             </table>
           </section>
           {{end}}
+
+          <!-- Vehicles -->
+          {{if vehiclesColumns .}}
+          <section id="vehicles" class="pt-3">
+            <table id="vehicles-table" class="table">
+              <thead>
+                <tr class="text-center">
+                  <th scope="col" class="half">Vehicles</th>
+                  {{range vehiclesColumns .}}
+                  <th scope="col">{{.Name}}</th>
+                  {{end}}
+                </tr>
+              </thead>
+              <tbody>
+                {{range .Character.Vehicles}}
+                <tr class="text-center">
+                  <td class="align-middle"><em>{{.Name}}</em></td>
+                  {{range .Fields}}
+                  <td class="small align-middle">{{.Value}}</td>
+                  {{end}}
+                </tr>
+                {{end}}
+              </tbody>
+            </table>
+          </section>
+          {{end}}
         </div>
       </div>
 

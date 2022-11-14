@@ -46,6 +46,12 @@ func render(c *CharacterSheet, p string) error {
 			}
 			return c.Character.Equipment[0].Fields
 		},
+		"vehiclesColumns": func(c *CharacterSheet) []*sheet.Field {
+			if len(c.Character.Vehicles) == 0 {
+				return []*sheet.Field{}
+			}
+			return c.Character.Vehicles[0].Fields
+		},
 	})
 	t, err := t.ParseFiles(path.Join(templatesPath, portrait))
 	if err != nil {
@@ -199,6 +205,30 @@ func addDefaults(c *CharacterSheet, l *sheet.Character) {
 				c.Character.Equipment = append(c.Character.Equipment, item)
 			} else {
 				i := c.Character.GetItem(item)
+				for _, f := range item.Fields {
+					if !i.HasField(f) {
+						i.Fields = append(i.Fields, f)
+					}
+				}
+			}
+		}
+	}
+
+	for _, item := range l.Vehicles {
+		if item.Name == "*" {
+			// Wildcard
+			for i := range c.Character.Vehicles {
+				for _, f := range item.Fields {
+					if !c.Character.Vehicles[i].HasField(f) {
+						c.Character.Vehicles[i].Fields = append(c.Character.Vehicles[i].Fields, f)
+					}
+				}
+			}
+		} else {
+			if !c.Character.HasItem(item) {
+				c.Character.Vehicles = append(c.Character.Vehicles, item)
+			} else {
+				i := c.Character.GetVehicle(item)
 				for _, f := range item.Fields {
 					if !i.HasField(f) {
 						i.Fields = append(i.Fields, f)

@@ -27,6 +27,7 @@ type SimpleImplementation struct {
 	Abilities  []*SimpleTrait
 	Traits     []*SimpleTrait
 	Equipment  []*SimpleEquipment
+	Vehicles   []*SimpleEquipment
 }
 
 type SimpleSkill struct {
@@ -73,6 +74,16 @@ func (i *SimpleImplementation) Convert() *Character {
 			item.Fields = append(item.Fields, &Field{"Size", e.Size})
 		}
 		c.Equipment = append(c.Equipment, item)
+	}
+	for _, e := range i.Vehicles {
+		item := &Item{
+			Name:   e.Name,
+			Fields: []*Field{{"Effect", e.Effect}},
+		}
+		if e.Size != "" {
+			item.Fields = append(item.Fields, &Field{"Size", e.Size})
+		}
+		c.Vehicles = append(c.Vehicles, item)
 	}
 	return c
 }
