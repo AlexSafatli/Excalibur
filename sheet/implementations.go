@@ -8,8 +8,7 @@ import (
 )
 
 const (
-	ImplementationSimple         = "simple"
-	ImplementationSizedInventory = "sized-inventory"
+	ImplementationSimple = "simple"
 )
 
 type Implementation interface {
@@ -43,21 +42,6 @@ type SimpleTrait struct {
 type SimpleEquipment struct {
 	Name   string
 	Effect string
-}
-
-type SizedInventoryImplementation struct {
-	headers
-	Fields     []*Field
-	Attributes []*Attribute
-	Skills     []*SimpleSkill
-	Abilities  []*SimpleTrait
-	Traits     []*SimpleTrait
-	Equipment  []*SizedEquipment
-}
-
-type SizedEquipment struct {
-	Name   string
-	Effect string
 	Size   string
 }
 
@@ -83,36 +67,7 @@ func (i *SimpleImplementation) Convert() *Character {
 	for _, e := range i.Equipment {
 		c.Equipment = append(c.Equipment, &Item{
 			Name:   e.Name,
-			Fields: []*Field{{"Effect", e.Effect}},
-		})
-	}
-	return c
-}
-
-func (i *SizedInventoryImplementation) Convert() *Character {
-	var c = &Character{}
-	c.CampaignName = i.CampaignName
-	c.Fields = i.Fields
-	c.Attributes = i.Attributes
-	for _, s := range i.Skills {
-		c.Skills = append(c.Skills, &Skill{
-			Name:   s.Name,
-			Fields: []*Field{{"Rank", strconv.Itoa(s.Rank)}},
-		})
-	}
-	for _, t := range i.Abilities {
-		c.Abilities = append(c.Abilities, &Trait{Name: t.Name, Value: t.Effect,
-			ValueName: "Effect"})
-	}
-	for _, t := range i.Traits {
-		c.Traits = append(c.Traits, &Trait{Name: t.Name, Value: t.Effect,
-			ValueName: "Effect"})
-	}
-	for _, e := range i.Equipment {
-		c.Equipment = append(c.Equipment, &Item{
-			Name: e.Name,
-			Fields: []*Field{{"Effect", e.Effect},
-				{"Size", e.Size}},
+			Fields: []*Field{{"Effect", e.Effect}, {"Size", e.Size}},
 		})
 	}
 	return c
@@ -122,12 +77,6 @@ func read(dat []byte, implementation string) Implementation {
 	switch implementation {
 	case ImplementationSimple:
 		var i SimpleImplementation
-		if err := json.Unmarshal(dat, &i); err != nil {
-			panic(err)
-		}
-		return &i
-	case ImplementationSizedInventory:
-		var i SizedInventoryImplementation
 		if err := json.Unmarshal(dat, &i); err != nil {
 			panic(err)
 		}
