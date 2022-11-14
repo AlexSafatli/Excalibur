@@ -65,10 +65,14 @@ func (i *SimpleImplementation) Convert() *Character {
 			ValueName: "Effect"})
 	}
 	for _, e := range i.Equipment {
-		c.Equipment = append(c.Equipment, &Item{
+		item := &Item{
 			Name:   e.Name,
-			Fields: []*Field{{"Effect", e.Effect}, {"Size", e.Size}},
-		})
+			Fields: []*Field{{"Effect", e.Effect}},
+		}
+		if e.Size != "" {
+			item.Fields = append(item.Fields, &Field{"Size", e.Size})
+		}
+		c.Equipment = append(c.Equipment, item)
 	}
 	return c
 }
